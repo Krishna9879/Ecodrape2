@@ -1,5 +1,4 @@
-import ProductCard from '../components/ProductCard'
-import CategorySlider from '../components/CategorySlider'
+import { useState, useEffect } from 'react'
 import ScrollAnimations from '../components/ScrollAnimations'
 
 // Import images from assets folder
@@ -39,6 +38,8 @@ import img65 from '../assets/img65.jpg'
 import img66 from '../assets/img66.jpg'
 
 const WomensNewArrivals = () => {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
   const sliderImages = [
     "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
     "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
@@ -49,248 +50,369 @@ const WomensNewArrivals = () => {
     {
       id: 1,
       name: "Botanical Print Maxi Dress",
-      price: "$95",
+      price: "₹7,599",
       image: img33,
       description: "Flowing maxi with hand-printed leaves"
     },
     {
       id: 2,
       name: "Organic Silk Blouse",
-      price: "$89",
+      price: "₹7,199",
       image: img34,
       description: "Luxurious silk with floral eco-prints"
     },
     {
       id: 3,
       name: "Natural Cotton Cardigan",
-      price: "$72",
+      price: "₹5,799",
       image: img35,
       description: "Cozy cardigan with botanical patterns"
     },
     {
       id: 4,
       name: "Eco-Printed Wrap Top",
-      price: "$58",
+      price: "₹4,699",
       image: img36,
       description: "Versatile wrap top with nature prints"
     },
     {
       id: 5,
       name: "Organic Linen Skirt",
-      price: "$68",
+      price: "₹5,499",
       image: img37,
       description: "Elegant skirt with natural dye patterns"
     },
     {
       id: 6,
       name: "Sustainable Midi Dress",
-      price: "$85",
+      price: "₹6,899",
       image: img38,
       description: "Chic midi dress with eco-friendly prints"
     },
     {
       id: 7,
       name: "Natural Hemp Blazer",
-      price: "$142",
+      price: "₹11,499",
       image: img39,
       description: "Professional blazer in sustainable hemp"
     },
     {
       id: 8,
       name: "Botanical Print Jumpsuit",
-      price: "$125",
+      price: "₹10,199",
       image: img40,
       description: "Stylish jumpsuit with nature patterns"
     },
     {
       id: 9,
       name: "Eco-Dyed Palazzo Pants",
-      price: "$78",
+      price: "₹6,299",
       image: img41,
       description: "Comfortable palazzo pants in earth tones"
     },
     {
       id: 10,
       name: "Organic Cotton Tunic",
-      price: "$65",
+      price: "₹5,299",
       image: img42,
       description: "Flowing tunic with leaf motifs"
     },
     {
       id: 11,
       name: "Natural Silk Kimono",
-      price: "$156",
+      price: "₹12,699",
       image: img43,
       description: "Elegant kimono with botanical designs"
     },
     {
       id: 12,
       name: "Sustainable Wrap Dress",
-      price: "$98",
+      price: "₹7,999",
       image: img44,
       description: "Flattering wrap dress with eco-prints"
     },
     {
       id: 13,
       name: "Linen Button-Up Shirt",
-      price: "$76",
+      price: "₹6,199",
       image: img45,
       description: "Classic shirt in natural linen"
     },
     {
       id: 14,
       name: "Botanical Print Tank Top",
-      price: "$48",
+      price: "₹3,899",
       image: img46,
       description: "Lightweight tank with leaf patterns"
     },
     {
       id: 15,
       name: "Organic Hemp Shorts",
-      price: "$54",
+      price: "₹4,399",
       image: img47,
       description: "Comfortable shorts in sustainable hemp"
     },
     {
       id: 16,
       name: "Natural Dye Camisole",
-      price: "$42",
+      price: "₹3,399",
       image: img48,
       description: "Delicate camisole with plant-based dyes"
     },
     {
       id: 17,
       name: "Eco-Print Maxi Skirt",
-      price: "$88",
+      price: "₹7,199",
       image: img49,
       description: "Flowing maxi skirt with botanical prints"
     },
     {
       id: 18,
       name: "Sustainable Cotton Dress",
-      price: "$92",
+      price: "₹7,499",
       image: img50,
       description: "Comfortable dress in organic cotton"
     },
     {
       id: 19,
       name: "Natural Fiber Poncho",
-      price: "$86",
+      price: "₹6,999",
       image: img51,
       description: "Cozy poncho with earth-tone prints"
     },
     {
       id: 20,
       name: "Botanical Print Leggings",
-      price: "$52",
+      price: "₹4,199",
       image: img52,
       description: "Stretchy leggings with leaf designs"
     },
     {
       id: 21,
       name: "Organic Linen Blazer",
-      price: "$165",
+      price: "₹13,399",
       image: img53,
       description: "Professional blazer in natural linen"
     },
     {
       id: 22,
       name: "Eco-Dyed Wrap Top",
-      price: "$64",
+      price: "₹5,199",
       image: img54,
       description: "Flattering wrap top with natural dyes"
     },
     {
       id: 23,
       name: "Natural Cotton Hoodie",
-      price: "$95",
+      price: "₹7,699",
       image: img55,
       description: "Comfortable hoodie with botanical details"
     },
     {
       id: 24,
       name: "Sustainable Silk Scarf",
-      price: "$58",
+      price: "₹4,699",
       image: img56,
       description: "Luxurious scarf with eco-prints"
     },
     {
       id: 25,
       name: "Botanical Print Sundress",
-      price: "$82",
+      price: "₹6,699",
       image: img57,
       description: "Light sundress with nature motifs"
     },
     {
       id: 26,
       name: "Organic Hemp Vest",
-      price: "$68",
+      price: "₹5,499",
       image: img58,
       description: "Versatile vest in sustainable hemp"
     },
     {
       id: 27,
       name: "Natural Dye Crop Top",
-      price: "$46",
+      price: "₹3,699",
       image: img59,
       description: "Trendy crop top with plant dyes"
     },
     {
       id: 28,
       name: "Eco-Print Evening Dress",
-      price: "$185",
+      price: "₹15,099",
       image: img60,
       description: "Elegant evening dress with botanical motifs"
     },
     {
       id: 29,
       name: "Linen Wide-Leg Pants",
-      price: "$76",
+      price: "₹6,199",
       image: img61,
       description: "Comfortable wide-leg pants in linen"
     },
     {
       id: 30,
       name: "Sustainable Bamboo Top",
-      price: "$58",
+      price: "₹4,699",
       image: img62,
       description: "Soft bamboo top with nature prints"
     },
     {
       id: 31,
       name: "Botanical Print Sarong",
-      price: "$44",
+      price: "₹3,599",
       image: img63,
       description: "Versatile sarong with leaf designs"
     },
     {
       id: 32,
       name: "Organic Cotton Romper",
-      price: "$88",
+      price: "₹7,199",
       image: img64,
       description: "Playful romper with botanical details"
     },
     {
       id: 33,
       name: "Natural Silk Blouse",
-      price: "$134",
+      price: "₹10,899",
       image: img65,
       description: "Elegant blouse in peace silk"
     },
     {
       id: 34,
       name: "Eco-Dyed Maxi Dress",
-      price: "$148",
+      price: "₹12,099",
       image: img66,
       description: "Stunning maxi dress with natural dyes"
     }
   ]
 
+  // Auto-slide functionality
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length)
+    }, 4000) // Change slide every 4 seconds
+
+    return () => clearInterval(timer)
+  }, [sliderImages.length])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % sliderImages.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length)
+  }
+
+  // Category Slider Component with Navigation
+  const CategorySlider = ({ title, subtitle, images }) => {
+    return (
+      <div className="relative mb-16 overflow-hidden rounded-3xl shadow-2xl">
+        <div className="relative h-96 md:h-[500px]">
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={image}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+            </div>
+          ))}
+          
+          {/* Content Overlay */}
+          <div className="absolute inset-0 flex items-center justify-start">
+            <div className="text-white px-8 md:px-16 max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-shadow-lg">
+                {title}
+              </h2>
+              <p className="text-lg md:text-xl opacity-90 text-shadow">
+                {subtitle}
+              </p>
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Uniform Product Card Component (without + button)
+  const UniformProductCard = ({ product }) => {
+    return (
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl group h-full flex flex-col">
+        {/* Fixed Image Container */}
+        <div className="relative overflow-hidden h-80 bg-gray-100">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        {/* Fixed Content Container */}
+        <div className="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">
+              {product.name}
+            </h3>
+            <p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-[2.5rem]">
+              {product.description}
+            </p>
+          </div>
+          
+          <div className="mt-auto">
+            <span className="text-2xl font-bold text-sage-600">
+              {product.price}
+            </span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-sage-50 pt-20 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-sage-50 pt-4 overflow-hidden">
       <ScrollAnimations />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Category Slider */}
         <div className="scroll-animate">
           <CategorySlider 
@@ -302,7 +424,7 @@ const WomensNewArrivals = () => {
 
         {/* Header */}
         <div className="text-center mb-16 scroll-animate">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6 gradient-text">
+          <h1 className="text-4xl md:text-6xl font-medium text-gray-900 mb-6">
             Women's New Arrivals
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -311,11 +433,11 @@ const WomensNewArrivals = () => {
           </p>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid - Uniform Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
           {womensProducts.map((product, index) => (
             <div key={product.id} className={`scroll-animate stagger-${(index % 4) + 1}`}>
-              <ProductCard product={product} />
+              <UniformProductCard product={product} />
             </div>
           ))}
         </div>
@@ -323,7 +445,7 @@ const WomensNewArrivals = () => {
         {/* Women's Collection Info */}
         <div className="bg-gradient-to-r from-white to-rose-50 rounded-3xl shadow-2xl p-12 scroll-animate hover-glow">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 gradient-text">
+            <h2 className="text-3xl md:text-4xl font-medium text-gray-900 mb-6">
               Designed for the Conscious Woman
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
