@@ -8,12 +8,18 @@ const Navbar = () => {
 
   const isActive = (path) => location.pathname === path
 
+  // Function to handle navigation and scroll to top
+  const handleNavigation = () => {
+    window.scrollTo(0, 0)
+    setIsMenuOpen(false) // Close mobile menu when navigating
+  }
+
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center" onClick={handleNavigation}>
             <span className="text-2xl font-serif font-bold text-sage-600">Eco Drape</span>
           </Link>
 
@@ -24,6 +30,7 @@ const Navbar = () => {
               className={`px-3 py-2 text-sm font-medium transition-colors ${
                 isActive('/') ? 'text-sage-600 border-b-2 border-sage-600' : 'text-gray-700 hover:text-sage-600'
               }`}
+              onClick={handleNavigation}
             >
               Home
             </Link>
@@ -32,6 +39,7 @@ const Navbar = () => {
               className={`px-3 py-2 text-sm font-medium transition-colors ${
                 isActive('/catalog') ? 'text-sage-600 border-b-2 border-sage-600' : 'text-gray-700 hover:text-sage-600'
               }`}
+              onClick={handleNavigation}
             >
               Catalog
             </Link>
@@ -47,6 +55,7 @@ const Navbar = () => {
                 className={`px-3 py-2 text-sm font-medium transition-colors flex items-center ${
                   location.pathname.startsWith('/new-arrivals') ? 'text-sage-600 border-b-2 border-sage-600' : 'text-gray-700 hover:text-sage-600'
                 }`}
+                onClick={handleNavigation}
               >
                 New Arrivals
                 <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,12 +68,14 @@ const Navbar = () => {
                   <Link 
                     to="/mens-new-arrivals" 
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-sage-50 hover:text-sage-600 transition-colors"
+                    onClick={handleNavigation}
                   >
                     Men's Collection
                   </Link>
                   <Link 
                     to="/womens-new-arrivals" 
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-sage-50 hover:text-sage-600 transition-colors"
+                    onClick={handleNavigation}
                   >
                     Women's Collection
                   </Link>
@@ -77,6 +88,7 @@ const Navbar = () => {
               className={`px-3 py-2 text-sm font-medium transition-colors ${
                 isActive('/about') ? 'text-sage-600 border-b-2 border-sage-600' : 'text-gray-700 hover:text-sage-600'
               }`}
+              onClick={handleNavigation}
             >
               About Us
             </Link>
@@ -85,6 +97,7 @@ const Navbar = () => {
               className={`px-3 py-2 text-sm font-medium transition-colors ${
                 isActive('/contact') ? 'text-sage-600 border-b-2 border-sage-600' : 'text-gray-700 hover:text-sage-600'
               }`}
+              onClick={handleNavigation}
             >
               Contact
             </Link>
@@ -93,6 +106,7 @@ const Navbar = () => {
               className={`px-3 py-2 text-sm font-medium transition-colors ${
                 isActive('/blog') ? 'text-sage-600 border-b-2 border-sage-600' : 'text-gray-700 hover:text-sage-600'
               }`}
+              onClick={handleNavigation}
             >
               Blog
             </Link>
@@ -119,14 +133,62 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden animate-fade-in">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-              <Link to="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600">Home</Link>
-              <Link to="/catalog" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600">Catalog</Link>
-              <Link to="/new-arrivals" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600">New Arrivals</Link>
-              <Link to="/mens-new-arrivals" className="block px-6 py-2 text-sm font-medium text-gray-600 hover:text-sage-600">Men's</Link>
-              <Link to="/womens-new-arrivals" className="block px-6 py-2 text-sm font-medium text-gray-600 hover:text-sage-600">Women's</Link>
-              <Link to="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600">About Us</Link>
-              <Link to="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600">Contact</Link>
-              <Link to="/blog" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600">Blog</Link>
+              <Link 
+                to="/" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/catalog" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                Catalog
+              </Link>
+              <Link 
+                to="/new-arrivals" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                New Arrivals
+              </Link>
+              <Link 
+                to="/mens-new-arrivals" 
+                className="block px-6 py-2 text-sm font-medium text-gray-600 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                Men's
+              </Link>
+              <Link 
+                to="/womens-new-arrivals" 
+                className="block px-6 py-2 text-sm font-medium text-gray-600 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                Women's
+              </Link>
+              <Link 
+                to="/about" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                About Us
+              </Link>
+              <Link 
+                to="/contact" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                Contact
+              </Link>
+              <Link 
+                to="/blog" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-sage-600"
+                onClick={handleNavigation}
+              >
+                Blog
+              </Link>
             </div>
           </div>
         )}
