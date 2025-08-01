@@ -1,49 +1,49 @@
 import { useState, useEffect } from 'react'
 import ScrollAnimations from '../components/ScrollAnimations'
 
-// Import images from assets folder
-import img33 from '../assets/img33.jpg'
-import img34 from '../assets/img34.jpg'
-import img35 from '../assets/img35.jpg'
-import img36 from '../assets/img36.jpg'
-import img37 from '../assets/img37.jpg'
-import img38 from '../assets/img38.jpg'
-import img39 from '../assets/img39.jpg'
-import img40 from '../assets/img40.jpg'
-import img41 from '../assets/img41.jpg'
-import img42 from '../assets/img42.jpg'
-import img43 from '../assets/img43.jpg'
-import img44 from '../assets/img44.jpg'
-import img45 from '../assets/img45.jpg'
-import img46 from '../assets/img46.jpg'
-import img47 from '../assets/img47.jpg'
-import img48 from '../assets/img48.jpg'
-import img49 from '../assets/img49.jpg'
-import img50 from '../assets/img50.jpg'
-import img51 from '../assets/img51.jpg'
-import img52 from '../assets/img52.jpg'
-import img53 from '../assets/img53.jpg'
-import img54 from '../assets/img54.jpg'
-import img55 from '../assets/img55.jpg'
-import img56 from '../assets/img56.jpg'
-import img57 from '../assets/img57.jpg'
-import img58 from '../assets/img58.jpg'
-import img59 from '../assets/img59.jpg'
-import img60 from '../assets/img60.jpg'
-import img61 from '../assets/img61.jpg'
-import img62 from '../assets/img62.png'
-import img63 from '../assets/img63.png'
-import img64 from '../assets/img64.png'
-import img65 from '../assets/img65.jpg'
-import img66 from '../assets/img66.jpg'
+// Images from public/assets folder
+const img33 = '/assets/img33.jpg'
+const img34 = '/assets/img34.jpg'
+const img35 = '/assets/img35.jpg'
+const img36 = '/assets/img36.jpg'
+const img37 = '/assets/img37.jpg'
+const img38 = '/assets/img38.jpg'
+const img39 = '/assets/img39.jpg'
+const img40 = '/assets/img40.jpg'
+const img41 = '/assets/img41.jpg'
+const img42 = '/assets/img42.jpg'
+const img43 = '/assets/img43.jpg'
+const img44 = '/assets/img44.jpg'
+const img45 = '/assets/img45.jpg'
+const img46 = '/assets/img46.jpg'
+const img47 = '/assets/img47.jpg'
+const img48 = '/assets/img48.jpg'
+const img49 = '/assets/img49.jpg'
+const img50 = '/assets/img50.jpg'
+const img51 = '/assets/img51.jpg'
+const img52 = '/assets/img52.jpg'
+const img53 = '/assets/img53.jpg'
+const img54 = '/assets/img54.jpg'
+const img55 = '/assets/img55.jpg'
+const img56 = '/assets/img56.jpg'
+const img57 = '/assets/img57.jpg'
+const img58 = '/assets/img58.jpg'
+const img59 = '/assets/img59.jpg'
+const img60 = '/assets/img60.jpg'
+const img61 = '/assets/img61.jpg'
+const img62 = '/assets/img62.png'
+const img63 = '/assets/img63.png'
+const img64 = '/assets/img64.png'
+const img65 = '/assets/img65.jpg'
+const img66 = '/assets/img66.jpg'
 
 const WomensNewArrivals = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const sliderImages = [
-    "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/7679726/pexels-photo-7679726.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2"
+    "/assets/aboutimg1.jpg",
+    "/assets/aboutimg2.jpg",
+    "/assets/aboutimg3.jpg"
   ]
 
   const womensProducts = [
@@ -382,7 +382,7 @@ const WomensNewArrivals = () => {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
@@ -390,10 +390,10 @@ const WomensNewArrivals = () => {
         {/* Fixed Content Container */}
         <div className="p-6 flex-1 flex flex-col justify-between">
           <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
               {product.name}
             </h3>
-            <p className="text-gray-600 text-sm mb-4 line-clamp-2 min-h-[2.5rem]">
+            <p className="text-gray-600 text-sm mb-4">
               {product.description}
             </p>
           </div>

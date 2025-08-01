@@ -1,56 +1,188 @@
+import { useState, useRef, useEffect } from 'react'
 import HeroSlider from '../components/HeroSlider'
 import ProductCard from '../components/ProductCard'
 import ScrollAnimations from '../components/ScrollAnimations'
 
 const Home = () => {
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
+  const testimonialsRef = useRef(null)
   const featuredProducts = [
     {
       id: 1,
       name: "Botanical Leaf Print Dress",
       price: "$89",
-      image: "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img33.jpg",
       description: "Handcrafted with natural leaf prints"
     },
     {
       id: 2,
       name: "Organic Cotton Scarf",
       price: "$45",
-      image: "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img34.jpg",
       description: "Eco-printed with flower petals"
     },
     {
       id: 3,
       name: "Natural Dye Blouse",
       price: "$67",
-      image: "https://images.pexels.com/photos/7679726/pexels-photo-7679726.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img35.jpg",
       description: "Made from organic plant dyes"
     },
     {
       id: 4,
       name: "Earth Tone Tunic",
       price: "$75",
-      image: "https://images.pexels.com/photos/7679733/pexels-photo-7679733.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img36.jpg",
       description: "Sustainably crafted comfort wear"
     }
   ]
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Priya Sharma",
       text: "The quality and beauty of Eco Drape's pieces are unmatched. Each garment tells a story.",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2"
+      rating: 5
     },
     {
-      name: "Michael Chen",
+      name: "Arjun Patel",
       text: "Finally, sustainable fashion that doesn't compromise on style. Absolutely love my collection!",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2"
+      rating: 5
     },
     {
-      name: "Emma Rodriguez",
+      name: "Anjali Desai",
       text: "The eco-printing process creates such unique patterns. I get compliments every time I wear them.",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2"
+      rating: 5
+    },
+    {
+      name: "Rahul Verma",
+      text: "Incredible craftsmanship! The botanical prints are so detailed and the fabric feels amazing.",
+      rating: 5
+    },
+    {
+      name: "Meera Kapoor",
+      text: "As someone who cares about the environment, I love that these clothes are truly sustainable.",
+      rating: 5
+    },
+    {
+      name: "Vikram Singh",
+      text: "The colors are so vibrant and natural. Each piece is like wearing a piece of art.",
+      rating: 5
+    },
+    {
+      name: "Kavya Reddy",
+      text: "Perfect fit and comfort. The organic materials make all the difference.",
+      rating: 5
+    },
+    {
+      name: "Aditya Malhotra",
+      text: "I've never seen such unique designs. Every piece is conversation starter!",
+      rating: 5
+    },
+    {
+      name: "Zara Khan",
+      text: "The attention to detail is remarkable. You can tell each piece is made with love.",
+      rating: 5
+    },
+    {
+      name: "Rohan Gupta",
+      text: "Sustainable fashion that actually looks good! Finally found my perfect brand.",
+      rating: 5
+    },
+    {
+      name: "Ishita Joshi",
+      text: "The eco-printing technique is fascinating. Love supporting innovative sustainable practices.",
+      rating: 5
+    },
+    {
+      name: "Aarav Mehta",
+      text: "These clothes make me feel connected to nature. Beautiful and meaningful fashion.",
+      rating: 5
     }
   ]
+
+  // Uniform Product Card Component (without + button)
+  const UniformProductCard = ({ product }) => {
+    return (
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl group h-full flex flex-col">
+        {/* Fixed Image Container */}
+        <div className="relative overflow-hidden h-80 bg-gray-100">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        {/* Fixed Content Container */}
+        <div className="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              {product.name}
+            </h3>
+            <p className="text-gray-600 text-sm mb-4">
+              {product.description}
+            </p>
+          </div>
+          
+          <div className="mt-auto">
+            <span className="text-2xl font-bold text-sage-600">
+              {product.price}
+            </span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // Mouse and touch event handlers
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    setStartX(e.pageX - testimonialsRef.current.offsetLeft)
+    setScrollLeft(testimonialsRef.current.scrollLeft)
+    testimonialsRef.current.style.animationPlayState = 'paused'
+  }
+
+  const handleMouseLeave = () => {
+    setIsDragging(false)
+    testimonialsRef.current.style.animationPlayState = 'running'
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+    testimonialsRef.current.style.animationPlayState = 'running'
+  }
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.pageX - testimonialsRef.current.offsetLeft
+    const walk = (x - startX) * 2
+    testimonialsRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  // Touch event handlers for mobile
+  const handleTouchStart = (e) => {
+    setIsDragging(true)
+    setStartX(e.touches[0].pageX - testimonialsRef.current.offsetLeft)
+    setScrollLeft(testimonialsRef.current.scrollLeft)
+    testimonialsRef.current.style.animationPlayState = 'paused'
+  }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+    testimonialsRef.current.style.animationPlayState = 'running'
+  }
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.touches[0].pageX - testimonialsRef.current.offsetLeft
+    const walk = (x - startX) * 2
+    testimonialsRef.current.scrollLeft = scrollLeft - walk
+  }
 
   return (
     <div className="overflow-hidden min-h-screen">
@@ -62,7 +194,7 @@ const Home = () => {
       </div>
 
       {/* About Section */}
-      <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-sage-50 relative overflow-hidden">
+      <section className="pt-8 pb-20 bg-gradient-to-br from-rose-50 via-white to-sage-50 relative overflow-hidden">
         <div className="absolute inset-0 liquid opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -88,9 +220,9 @@ const Home = () => {
             <div className="scroll-animate-right relative">
               <div className="relative group">
                 <img
-                  src="https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=2"
+                  src="/assets/aboutimg1.jpg"
                   alt="Eco printing process"
-                  className="rounded-2xl shadow-2xl w-full h-96 object-cover transform transition-all duration-700 group-hover:scale-105 hover-glow"
+                  className="rounded-2xl shadow-2xl w-full h-96 object-cover transform transition-all duration-700 group-hover:scale-103 hover-glow"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-sage-600/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-rose-300 to-sage-300 rounded-full floating opacity-70"></div>
@@ -249,7 +381,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product, index) => (
               <div key={product.id} className={`scroll-animate stagger-${index + 1}`}>
-                <ProductCard product={product} />
+                <UniformProductCard product={product} />
               </div>
             ))}
           </div>
@@ -276,29 +408,69 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className={`group bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center transform transition-all duration-700 hover:scale-105 hover:bg-white/20 scroll-animate stagger-${index + 1} hover-glow`}>
-                <div className="relative mb-6 inline-block">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-20 h-20 rounded-full mx-auto object-cover border-4 border-white/30 group-hover:border-white/50 transition-all duration-300"
-                  />
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-rose-400 to-sage-400 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                    </svg>
+          <div className="relative overflow-hidden testimonials-container">
+            <div 
+              ref={testimonialsRef}
+              className="flex animate-scroll-testimonials select-none"
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onTouchMove={handleTouchMove}
+            >
+              {/* First set of testimonials */}
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="flex-shrink-0 w-80 md:w-96 mx-4 group bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform transition-all duration-700 hover:scale-105 hover:bg-white/20 hover-glow">
+                  <div className="mb-4">
+                    <div className="flex justify-center mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-rose-400 to-sage-400 rounded-full flex items-center justify-center mx-auto">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                      </svg>
+                    </div>
                   </div>
+                  <p className="text-white/90 mb-4 italic leading-relaxed group-hover:text-white transition-colors duration-300 text-sm">
+                    "{testimonial.text}"
+                  </p>
+                  <h4 className="text-white font-semibold text-base group-hover:text-rose-200 transition-colors duration-300">
+                    {testimonial.name}
+                  </h4>
                 </div>
-                <p className="text-white/90 mb-6 italic leading-relaxed group-hover:text-white transition-colors duration-300">
-                  "{testimonial.text}"
-                </p>
-                <h4 className="text-white font-semibold text-lg group-hover:text-rose-200 transition-colors duration-300">
-                  {testimonial.name}
-                </h4>
-              </div>
-            ))}
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {testimonials.map((testimonial, index) => (
+                <div key={`duplicate-${index}`} className="flex-shrink-0 w-80 md:w-96 mx-4 group bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform transition-all duration-700 hover:scale-105 hover:bg-white/20 hover-glow">
+                  <div className="mb-4">
+                    <div className="flex justify-center mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <div className="w-12 h-12 bg-gradient-to-br from-rose-400 to-sage-400 rounded-full flex items-center justify-center mx-auto">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="text-white/90 mb-4 italic leading-relaxed group-hover:text-white transition-colors duration-300 text-sm">
+                    "{testimonial.text}"
+                  </p>
+                  <h4 className="text-white font-semibold text-base group-hover:text-rose-200 transition-colors duration-300">
+                    {testimonial.name}
+                  </h4>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

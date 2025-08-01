@@ -4,7 +4,7 @@ const Blog = () => {
       id: 1,
       title: "The Art of Eco-Printing: A Sustainable Journey",
       excerpt: "Discover the ancient technique of eco-printing and how it's revolutionizing sustainable fashion...",
-      image: "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
+      image: "/assets/aboutimg1.jpg",
       date: "March 15, 2025",
       readTime: "5 min read"
     },
@@ -12,7 +12,7 @@ const Blog = () => {
       id: 2,
       title: "Natural Dyeing: Colors from Mother Earth",
       excerpt: "Learn about the beautiful colors we can extract from plants, flowers, and natural materials...",
-      image: "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
+      image: "/assets/aboutimg2.jpg",
       date: "March 10, 2025",
       readTime: "7 min read"
     },
@@ -20,7 +20,7 @@ const Blog = () => {
       id: 3,
       title: "Sustainable Fashion: Why It Matters",
       excerpt: "Understanding the impact of fast fashion and how sustainable alternatives can make a difference...",
-      image: "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
+      image: "/assets/aboutimg3.jpg",
       date: "March 5, 2025",
       readTime: "6 min read"
     },
@@ -28,7 +28,7 @@ const Blog = () => {
       id: 4,
       title: "Behind the Scenes: Our Printing Process",
       excerpt: "Take a look inside our studio and see how each unique piece comes to life through eco-printing...",
-      image: "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
+      image: "/assets/aboutimg4.jpg",
       date: "February 28, 2025",
       readTime: "4 min read"
     },
@@ -36,7 +36,7 @@ const Blog = () => {
       id: 5,
       title: "Caring for Your Eco-Printed Garments",
       excerpt: "Tips and tricks to ensure your naturally dyed clothing maintains its beauty for years to come...",
-      image: "https://images.pexels.com/photos/5836962/pexels-photo-5836962.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
+      image: "/assets/aboutimg5.jpg",
       date: "February 22, 2025",
       readTime: "3 min read"
     },
@@ -44,7 +44,7 @@ const Blog = () => {
       id: 6,
       title: "The Story of Each Leaf: Nature's Unique Patterns",
       excerpt: "How every leaf tells a different story and creates unique patterns in our eco-printing process...",
-      image: "https://images.pexels.com/photos/7679726/pexels-photo-7679726.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2",
+      image: "/assets/aboutimg6.jpg",
       date: "February 18, 2025",
       readTime: "5 min read"
     }

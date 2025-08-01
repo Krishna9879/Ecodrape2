@@ -1,9 +1,10 @@
-import aboutimg1 from '../assets/aboutimg1.jpg'
-import aboutimg2 from '../assets/aboutimg2.jpg'
-import aboutimg3 from '../assets/aboutimg3.jpg'
-import aboutimg4 from '../assets/aboutimg4.jpg'
-import aboutimg5 from '../assets/aboutimg5.jpg'
-import aboutimg6 from '../assets/aboutimg6.jpg'
+// Images from public/assets folder
+const aboutimg1 = '/assets/aboutimg1.jpg'
+const aboutimg2 = '/assets/aboutimg2.jpg'
+const aboutimg3 = '/assets/aboutimg3.jpg'
+const aboutimg4 = '/assets/aboutimg4.jpg'
+const aboutimg5 = '/assets/aboutimg5.jpg'
+const aboutimg6 = '/assets/aboutimg6.jpg'
 
 const AboutUs = () => {
   const processSteps = [
@@ -49,7 +50,7 @@ const AboutUs = () => {
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img
-          src="https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="/assets/aboutimg2.jpg"
           alt="Natural materials for eco printing"
           className="w-full h-full object-cover"
         />

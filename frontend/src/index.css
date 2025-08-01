@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom animations */
+@keyframes scroll-testimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-testimonials {
+  animation: scroll-testimonials 20s linear infinite;
+  cursor: grab;
+}
+
+.animate-scroll-testimonials:active {
+  cursor: grabbing;
+}
+
+/* Pause animation on hover */
+.animate-scroll-testimonials:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth scrolling for manual control */
+.testimonials-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}

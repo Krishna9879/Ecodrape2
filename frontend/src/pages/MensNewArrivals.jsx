@@ -5,55 +5,12 @@ const MensNewArrivals = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const sliderImages = [
-    "https://images.pexels.com/photos/4040693/pexels-photo-4040693.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2"
+    "/assets/aboutimg4.jpg",
+    "/assets/aboutimg5.jpg",
+    "/assets/aboutimg6.jpg"
   ]
 
-  const mensProducts = [
-    {
-      id: 1,
-      name: "Men's Organic Linen Shirt",
-      price: "₹5,999",
-      image: "https://images.pexels.com/photos/4040693/pexels-photo-4040693.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
-      description: "Naturally dyed linen with leaf patterns"
-    },
-    {
-      id: 2,
-      name: "Hemp Canvas Jacket",
-      price: "₹9,599",
-      image: "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
-      description: "Durable hemp with botanical prints"
-    },
-    {
-      id: 3,
-      name: "Eco-Print Cotton Tee",
-      price: "₹3,499",
-      image: "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
-      description: "Soft organic cotton with nature motifs"
-    },
-    {
-      id: 4,
-      name: "Natural Dye Polo",
-      price: "₹4,999",
-      image: "https://images.pexels.com/photos/5836962/pexels-photo-5836962.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
-      description: "Classic polo with eco-friendly dyes"
-    },
-    {
-      id: 5,
-      name: "Organic Cotton Hoodie",
-      price: "₹6,899",
-      image: "https://images.pexels.com/photos/4040693/pexels-photo-4040693.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
-      description: "Comfortable hoodie with botanical prints"
-    },
-    {
-      id: 6,
-      name: "Natural Fiber Cardigan",
-      price: "₹7,299",
-      image: "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
-      description: "Warm cardigan with eco-friendly dyes"
-    }
-  ]
+  const mensProducts = []
 
   // Auto-slide functionality
   useEffect(() => {
@@ -201,13 +158,64 @@ const MensNewArrivals = () => {
           </p>
         </div>
 
-        {/* Products Grid - Uniform Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mb-16">
-          {mensProducts.map((product, index) => (
-            <div key={product.id} className={`scroll-animate stagger-${(index % 4) + 1}`}>
-              <UniformProductCard product={product} />
+        {/* Coming Soon Section */}
+        <div className="text-center mb-16 scroll-animate">
+          <div className="bg-gradient-to-br from-white to-sage-50 rounded-3xl shadow-2xl p-16 max-w-4xl mx-auto">
+            <div className="mb-8">
+              <div className="w-24 h-24 bg-gradient-to-br from-sage-100 to-earth-100 rounded-full flex items-center justify-center mx-auto mb-6 transform transition-all duration-500 hover:scale-110">
+                <svg className="w-12 h-12 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+                Coming Soon
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-sage-400 to-earth-400 mx-auto mb-6 rounded-full"></div>
             </div>
-          ))}
+            
+            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              Our exclusive men's collection is being carefully crafted with sustainable materials and nature-inspired designs.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-rose-100 to-sage-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-500 group-hover:scale-110">
+                  <svg className="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Premium Quality</h3>
+                <p className="text-gray-600 text-sm">Organic materials & sustainable practices</p>
+              </div>
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-sage-100 to-earth-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-500 group-hover:scale-110">
+                  <svg className="w-8 h-8 text-sage-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Unique Designs</h3>
+                <p className="text-gray-600 text-sm">Botanical prints & nature motifs</p>
+              </div>
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-earth-100 to-rose-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform transition-all duration-500 group-hover:scale-110">
+                  <svg className="w-8 h-8 text-earth-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Perfect Fit</h3>
+                <p className="text-gray-600 text-sm">Tailored for comfort & style</p>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-sage-50 to-earth-50 rounded-2xl p-6 border border-sage-200">
+              <p className="text-lg text-gray-700 mb-4">
+                <span className="font-semibold text-sage-600">Stay tuned!</span> Be the first to know when our men's collection launches.
+              </p>
+              <button className="bg-gradient-to-r from-sage-500 to-earth-500 hover:from-sage-600 hover:to-earth-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                Notify Me
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Men's Collection Info */}

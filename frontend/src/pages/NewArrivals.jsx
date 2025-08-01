@@ -4,15 +4,15 @@ import ScrollAnimations from '../components/ScrollAnimations'
 
 const NewArrivals = ({ category }) => {
   const mensSliderImages = [
-    "https://images.pexels.com/photos/4040693/pexels-photo-4040693.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2"
+    "/assets/aboutimg4.jpg",
+    "/assets/aboutimg5.jpg",
+    "/assets/aboutimg6.jpg"
   ]
 
   const womensSliderImages = [
-    "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/7679726/pexels-photo-7679726.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2"
+    "/assets/aboutimg1.jpg",
+    "/assets/aboutimg2.jpg",
+    "/assets/aboutimg3.jpg"
   ]
 
   const allSliderImages = [
@@ -25,28 +25,28 @@ const NewArrivals = ({ category }) => {
       id: 1,
       name: "Men's Organic Linen Shirt",
       price: "$78",
-      image: "https://images.pexels.com/photos/4040693/pexels-photo-4040693.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img1.jpg",
       description: "Naturally dyed linen with leaf patterns"
     },
     {
       id: 2,
       name: "Hemp Canvas Jacket",
       price: "$125",
-      image: "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img2.jpg",
       description: "Durable hemp with botanical prints"
     },
     {
       id: 3,
       name: "Eco-Print Cotton Tee",
       price: "$45",
-      image: "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img3.jpg",
       description: "Soft organic cotton with nature motifs"
     },
     {
       id: 4,
       name: "Natural Dye Polo",
       price: "$65",
-      image: "https://images.pexels.com/photos/5836962/pexels-photo-5836962.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img4.jpg",
       description: "Classic polo with eco-friendly dyes"
     }
   ]
@@ -56,28 +56,28 @@ const NewArrivals = ({ category }) => {
       id: 5,
       name: "Botanical Print Maxi Dress",
       price: "$95",
-      image: "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img33.jpg",
       description: "Flowing maxi with hand-printed leaves"
     },
     {
       id: 6,
       name: "Organic Silk Blouse",
       price: "$89",
-      image: "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img34.jpg",
       description: "Luxurious silk with floral eco-prints"
     },
     {
       id: 7,
       name: "Natural Cotton Cardigan",
       price: "$72",
-      image: "https://images.pexels.com/photos/7679726/pexels-photo-7679726.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img35.jpg",
       description: "Cozy cardigan with botanical patterns"
     },
     {
       id: 8,
       name: "Eco-Printed Wrap Top",
       price: "$58",
-      image: "https://images.pexels.com/photos/7679733/pexels-photo-7679733.jpeg?auto=compress&cs=tinysrgb&w=400&h=600&dpr=2",
+      image: "/assets/img36.jpg",
       description: "Versatile wrap top with nature prints"
     }
   ]

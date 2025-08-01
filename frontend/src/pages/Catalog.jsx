@@ -2,81 +2,81 @@ import ProductCard from '../components/ProductCard'
 import CategorySlider from '../components/CategorySlider'
 import ScrollAnimations from '../components/ScrollAnimations'
 
-// Import images from assets folder
-import img1 from '../assets/img1.jpg'
-import img2 from '../assets/img2.jpg'
-import img3 from '../assets/img3.jpg'
-import img4 from '../assets/img4.jpg'
-import img5 from '../assets/img5.jpg'
-import img6 from '../assets/img6.jpg'
-import img7 from '../assets/img7.jpg'
-import img8 from '../assets/img8.jpg'
-import img9 from '../assets/img9.jpg'
-import img10 from '../assets/img10.jpg'
-import img11 from '../assets/img11.jpg'
-import img12 from '../assets/img12.jpg'
-import img13 from '../assets/img13.jpg'
-import img14 from '../assets/img14.jpg'
-import img15 from '../assets/img30.jpg'
-import img16 from '../assets/img16.jpg'
-import img17 from '../assets/img17.jpg'
-import img18 from '../assets/img18.jpg'
-import img19 from '../assets/img19.jpg'
-import img20 from '../assets/img20.jpg'
-import img21 from '../assets/img21.jpg'
-import img22 from '../assets/img22.jpg'
-import img23 from '../assets/img23.jpg'
-import img24 from '../assets/img24.jpg'
-import img25 from '../assets/img25.jpg'
-import img26 from '../assets/img26.jpg'
-import img27 from '../assets/img27.jpg'
-import img28 from '../assets/img28.jpg'
-import img29 from '../assets/img29.jpg'
-import img30 from '../assets/img30.jpg'
-import img31 from '../assets/img31.jpg'
-import img32 from '../assets/img32.jpg'
+// Images from public/assets folder
+const img1 = '/assets/img1.jpg'
+const img2 = '/assets/img2.jpg'
+const img3 = '/assets/img3.jpg'
+const img4 = '/assets/img4.jpg'
+const img5 = '/assets/img5.jpg'
+const img6 = '/assets/img6.jpg'
+const img7 = '/assets/img7.jpg'
+const img8 = '/assets/img8.jpg'
+const img9 = '/assets/img9.jpg'
+const img10 = '/assets/img10.jpg'
+const img11 = '/assets/img11.jpg'
+const img12 = '/assets/img12.jpg'
+const img13 = '/assets/img13.jpg'
+const img14 = '/assets/img14.jpg'
+const img15 = '/assets/img30.jpg'
+const img16 = '/assets/img16.jpg'
+const img17 = '/assets/img17.jpg'
+const img18 = '/assets/img18.jpg'
+const img19 = '/assets/img19.jpg'
+const img20 = '/assets/img20.jpg'
+const img21 = '/assets/img21.jpg'
+const img22 = '/assets/img22.jpg'
+const img23 = '/assets/img23.jpg'
+const img24 = '/assets/img24.jpg'
+const img25 = '/assets/img25.jpg'
+const img26 = '/assets/img26.jpg'
+const img27 = '/assets/img27.jpg'
+const img28 = '/assets/img28.jpg'
+const img29 = '/assets/img29.jpg'
+const img30 = '/assets/img30.jpg'
+const img31 = '/assets/img31.jpg'
+const img32 = '/assets/img32.jpg'
 // New images
-import img33 from '../assets/img33.jpg'
-import img34 from '../assets/img34.jpg'
-import img35 from '../assets/img35.jpg'
-import img36 from '../assets/img36.jpg'
-import img37 from '../assets/img37.jpg'
-import img38 from '../assets/img38.jpg'
-import img39 from '../assets/img39.jpg'
-import img40 from '../assets/img40.jpg'
-import img41 from '../assets/img41.jpg'
-import img42 from '../assets/img42.jpg'
-import img43 from '../assets/img43.jpg'
-import img44 from '../assets/img44.jpg'
-import img45 from '../assets/img45.jpg'
-import img46 from '../assets/img46.jpg'
-import img47 from '../assets/img47.jpg'
-import img48 from '../assets/img48.jpg'
-import img49 from '../assets/img49.jpg'
-import img50 from '../assets/img50.jpg'
-import img51 from '../assets/img51.jpg'
-import img52 from '../assets/img52.jpg'
-import img53 from '../assets/img53.jpg'
-import img54 from '../assets/img54.jpg'
-import img55 from '../assets/img55.jpg'
-import img56 from '../assets/img56.jpg'
-import img57 from '../assets/img57.jpg'
-import img58 from '../assets/img58.jpg'
-import img59 from '../assets/img59.jpg'
-import img60 from '../assets/img60.jpg'
-import img61 from '../assets/img61.jpg'
-import img62 from '../assets/img62.png'
-import img63 from '../assets/img63.png'
-import img64 from '../assets/img64.png'
-import img65 from '../assets/img65.jpg'
-import img66 from '../assets/img66.jpg'
+const img33 = '/assets/img33.jpg'
+const img34 = '/assets/img34.jpg'
+const img35 = '/assets/img35.jpg'
+const img36 = '/assets/img36.jpg'
+const img37 = '/assets/img37.jpg'
+const img38 = '/assets/img38.jpg'
+const img39 = '/assets/img39.jpg'
+const img40 = '/assets/img40.jpg'
+const img41 = '/assets/img41.jpg'
+const img42 = '/assets/img42.jpg'
+const img43 = '/assets/img43.jpg'
+const img44 = '/assets/img44.jpg'
+const img45 = '/assets/img45.jpg'
+const img46 = '/assets/img46.jpg'
+const img47 = '/assets/img47.jpg'
+const img48 = '/assets/img48.jpg'
+const img49 = '/assets/img49.jpg'
+const img50 = '/assets/img50.jpg'
+const img51 = '/assets/img51.jpg'
+const img52 = '/assets/img52.jpg'
+const img53 = '/assets/img53.jpg'
+const img54 = '/assets/img54.jpg'
+const img55 = '/assets/img55.jpg'
+const img56 = '/assets/img56.jpg'
+const img57 = '/assets/img57.jpg'
+const img58 = '/assets/img58.jpg'
+const img59 = '/assets/img59.jpg'
+const img60 = '/assets/img60.jpg'
+const img61 = '/assets/img61.jpg'
+const img62 = '/assets/img62.png'
+const img63 = '/assets/img63.png'
+const img64 = '/assets/img64.png'
+const img65 = '/assets/img65.jpg'
+const img66 = '/assets/img66.jpg'
 
 const Catalog = () => {
   const sliderImages = [
-    "https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/7679746/pexels-photo-7679746.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/7679726/pexels-photo-7679726.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2",
-    "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&dpr=2"
+    "/assets/aboutimg1.jpg",
+    "/assets/aboutimg2.jpg",
+    "/assets/aboutimg3.jpg",
+    "/assets/aboutimg4.jpg"
   ]
 
   const products = [
@@ -544,6 +544,41 @@ const Catalog = () => {
     }
   ]
 
+  // Uniform Product Card Component (without + button)
+  const UniformProductCard = ({ product }) => {
+    return (
+      <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl group h-full flex flex-col">
+        {/* Fixed Image Container */}
+        <div className="relative overflow-hidden h-80 bg-gray-100">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        
+        {/* Fixed Content Container */}
+        <div className="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              {product.name}
+            </h3>
+            <p className="text-gray-600 text-sm mb-4">
+              {product.description}
+            </p>
+          </div>
+          
+          <div className="mt-auto">
+            <span className="text-2xl font-bold text-sage-600">
+              {product.price}
+            </span>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-white to-sage-50 pt-20 overflow-hidden">
       <ScrollAnimations />
@@ -585,11 +620,11 @@ const Catalog = () => {
           </button>
         </div>
 
-        {/* Products Grid */}
+        {/* Products Grid - Uniform Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-16">
           {products.map((product, index) => (
             <div key={product.id} className={`scroll-animate stagger-${(index % 4) + 1}`}>
-              <ProductCard product={product} />
+              <UniformProductCard product={product} />
             </div>
           ))}
         </div>

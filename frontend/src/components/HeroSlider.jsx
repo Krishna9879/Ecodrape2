@@ -42,10 +42,10 @@ const HeroSlider = () => {
         <div
           key={index}
           className={`absolute inset-0 transition-all duration-1000 ${
-            index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="absolute inset-0 parallax" data-speed="0.3">
+          <div className="absolute inset-0">
             <img
               src={slide.image}
               alt={slide.title}
