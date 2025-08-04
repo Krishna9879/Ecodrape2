@@ -1,43 +1,43 @@
-import { useState, useRef, useEffect } from 'react'
-import HeroSlider from '../components/HeroSlider'
-import ProductCard from '../components/ProductCard'
-import ScrollAnimations from '../components/ScrollAnimations'
+import { useState, useRef } from 'react';
+import HeroSlider from '../components/HeroSlider';
+import ScrollAnimations from '../components/ScrollAnimations';
 
 const Home = () => {
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
-  const testimonialsRef = useRef(null)
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const testimonialsRef = useRef(null);
+
   const featuredProducts = [
     {
       id: 1,
       name: "Botanical Leaf Print Dress",
-      price: "$89",
+      price: "₹7,599",
       image: "/assets/img33.jpg",
-      description: "Handcrafted with natural leaf prints"
+      description: "Flowing maxi with hand-printed leaves"
     },
     {
       id: 2,
       name: "Organic Cotton Scarf",
-      price: "$45",
+      price: "₹4,699",
       image: "/assets/img34.jpg",
-      description: "Eco-printed with flower petals"
+      description: "Luxurious scarf with eco-prints"
     },
     {
       id: 3,
       name: "Natural Dye Blouse",
-      price: "$67",
+      price: "₹5,799",
       image: "/assets/img35.jpg",
-      description: "Made from organic plant dyes"
+      description: "Elegant blouse with botanical designs"
     },
     {
       id: 4,
       name: "Earth Tone Tunic",
-      price: "$75",
+      price: "₹6,299",
       image: "/assets/img36.jpg",
-      description: "Sustainably crafted comfort wear"
+      description: "Comfortable tunic with leaf motifs"
     }
-  ]
+  ];
 
   const testimonials = [
     {
@@ -100,102 +100,91 @@ const Home = () => {
       text: "These clothes make me feel connected to nature. Beautiful and meaningful fashion.",
       rating: 5
     }
-  ]
-
-  // Uniform Product Card Component (without + button)
-  const UniformProductCard = ({ product }) => {
-    return (
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl group h-full flex flex-col">
-        {/* Fixed Image Container */}
-        <div className="relative overflow-hidden h-80 bg-gray-100">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </div>
-        
-        {/* Fixed Content Container */}
-        <div className="p-6 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
-              {product.name}
-            </h3>
-            <p className="text-gray-600 text-sm mb-4">
-              {product.description}
-            </p>
-          </div>
-          
-          <div className="mt-auto">
-            <span className="text-2xl font-bold text-sage-600">
-              {product.price}
-            </span>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  ];
 
   // Mouse and touch event handlers
   const handleMouseDown = (e) => {
-    setIsDragging(true)
-    setStartX(e.pageX - testimonialsRef.current.offsetLeft)
-    setScrollLeft(testimonialsRef.current.scrollLeft)
-    testimonialsRef.current.style.animationPlayState = 'paused'
-  }
+    setIsDragging(true);
+    setStartX(e.pageX - testimonialsRef.current.offsetLeft);
+    setScrollLeft(testimonialsRef.current.scrollLeft);
+    testimonialsRef.current.style.animationPlayState = 'paused';
+  };
 
   const handleMouseLeave = () => {
-    setIsDragging(false)
-    testimonialsRef.current.style.animationPlayState = 'running'
-  }
+    setIsDragging(false);
+    testimonialsRef.current.style.animationPlayState = 'running';
+  };
 
   const handleMouseUp = () => {
-    setIsDragging(false)
-    testimonialsRef.current.style.animationPlayState = 'running'
-  }
+    setIsDragging(false);
+    testimonialsRef.current.style.animationPlayState = 'running';
+  };
 
   const handleMouseMove = (e) => {
-    if (!isDragging) return
-    e.preventDefault()
-    const x = e.pageX - testimonialsRef.current.offsetLeft
-    const walk = (x - startX) * 2
-    testimonialsRef.current.scrollLeft = scrollLeft - walk
-  }
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - testimonialsRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    testimonialsRef.current.scrollLeft = scrollLeft - walk;
+  };
 
-  // Touch event handlers for mobile
   const handleTouchStart = (e) => {
-    setIsDragging(true)
-    setStartX(e.touches[0].pageX - testimonialsRef.current.offsetLeft)
-    setScrollLeft(testimonialsRef.current.scrollLeft)
-    testimonialsRef.current.style.animationPlayState = 'paused'
-  }
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - testimonialsRef.current.offsetLeft);
+    setScrollLeft(testimonialsRef.current.scrollLeft);
+    testimonialsRef.current.style.animationPlayState = 'paused';
+  };
 
   const handleTouchEnd = () => {
-    setIsDragging(false)
-    testimonialsRef.current.style.animationPlayState = 'running'
-  }
+    setIsDragging(false);
+    testimonialsRef.current.style.animationPlayState = 'running';
+  };
 
   const handleTouchMove = (e) => {
-    if (!isDragging) return
-    e.preventDefault()
-    const x = e.touches[0].pageX - testimonialsRef.current.offsetLeft
-    const walk = (x - startX) * 2
-    testimonialsRef.current.scrollLeft = scrollLeft - walk
-  }
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - testimonialsRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    testimonialsRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Uniform Product Card Component
+  const UniformProductCard = ({ product }) => {
+    return (
+      <div className="flex flex-col">
+        <div className="relative overflow-hidden h-96">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="pt-4 flex flex-col">
+          <h3 className="text-xl font-serif font-semibold mb-2" style={{ color: 'rgb(47, 91, 42)' }}>
+            {product.name}
+          </h3>
+          <p className="text-sm font-serif text-gray-600 mb-4">
+            {product.description}
+          </p>
+          <span className="text-2xl font-sans font-bold text-gold-500">
+            {product.price}
+          </span>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="overflow-hidden min-h-screen">
+    <div className="overflow-hidden min-h-screen bg-white">
       <ScrollAnimations />
-      
+
       {/* Hero Slider */}
       <div className="relative">
         <HeroSlider />
       </div>
 
       {/* About Section */}
-      <section className="pt-8 pb-20 bg-gradient-to-br from-rose-50 via-white to-sage-50 relative overflow-hidden">
-        <div className="absolute inset-0 liquid opacity-10"></div>
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="scroll-animate-left">
@@ -203,13 +192,13 @@ const Home = () => {
                 Crafted by Nature, Designed for You
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                At Eco Drape, we believe fashion should be beautiful, sustainable, and meaningful. 
-                Our unique eco-printing process captures the essence of nature in every piece, 
+                At Eco Drape, we believe fashion should be beautiful, sustainable, and meaningful.
+                Our unique eco-printing process captures the essence of nature in every piece,
                 creating textiles that are not just clothing, but wearable art.
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Each garment tells a story of the earth - from the leaves that create the prints 
-                to the organic materials that form the foundation. Join us in our mission to 
+                Each garment tells a story of the earth - from the leaves that create the prints
+                to the organic materials that form the foundation. Join us in our mission to
                 make fashion more conscious and beautiful.
               </p>
               <button className="group relative bg-gradient-to-r from-sage-600 to-earth-600 hover:from-sage-700 hover:to-earth-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-500 transform hover:scale-110 hover:shadow-2xl ripple magnetic">
@@ -222,7 +211,7 @@ const Home = () => {
                 <img
                   src="/assets/aboutimg1.jpg"
                   alt="Eco printing process"
-                  className="rounded-2xl shadow-2xl w-full h-96 object-cover transform transition-all duration-700 group-hover:scale-103 hover-glow"
+                  className="rounded-2xl shadow-2xl w-full h-96 object-contain bg-gray-100 transform transition-all duration-700 group-hover:scale-102 hover-glow"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-sage-600/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-rose-300 to-sage-300 rounded-full floating opacity-70"></div>
@@ -233,67 +222,61 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gradient-to-r from-sage-50 via-rose-50 to-earth-50 relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-sage-300 rounded-full floating"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-rose-300 rounded-full floating"></div>
-          <div className="absolute bottom-20 left-1/3 w-20 h-20 bg-earth-300 rounded-full floating"></div>
-        </div>
-        
+      {/* Why Choose Eco Drape Section */}
+      <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6 gradient-text">
+            <h2 className="text-4xl md:text-6xl font-serif font-medium text-gray-900 mb-6">
               Why Choose Eco Drape
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Every piece we create embodies our commitment to sustainable fashion and artisanal craftsmanship
+            <p className="text-xl font-serif text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Experience the fusion of sustainable innovation and timeless elegance in every garment
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center group scroll-animate stagger-1">
-              <div className="relative mb-6 inline-block">
-                <div className="bg-gradient-to-br from-sage-600 to-earth-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 hover-glow">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="relative group scroll-animate stagger-1 bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-sage-600 to-earth-600 rounded-t-2xl"></div>
+              <div className="flex justify-center mb-6">
+                <div className="bg-gradient-to-br from-sage-600 to-gold-500 w-16 h-16 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-110">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                   </svg>
                 </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-rose-400 rounded-full animate-pulse"></div>
               </div>
-              <h3 className="text-2xl font-serif font-semibold mb-4 text-gray-800 group-hover:text-sage-700 transition-colors duration-300">100% Natural</h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Made with organic materials and natural dyes sourced sustainably from nature
+              <h3 className="text-2xl font-serif font-semibold text-gray-900 mb-4 group-hover:text-sage-600 transition-colors duration-300">Artisanal Excellence</h3>
+              <p className="text-gray-600 font-serif leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                Every piece is meticulously handcrafted by skilled artisans, ensuring unparalleled quality and attention to detail.
               </p>
             </div>
-            
-            <div className="text-center group scroll-animate stagger-2">
-              <div className="relative mb-6 inline-block">
-                <div className="bg-gradient-to-br from-earth-500 to-rose-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 hover-glow">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+            <div className="relative group scroll-animate stagger-2 bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-earth-600 to-sage-600 rounded-t-2xl"></div>
+              <div className="flex justify-center mb-6">
+                <div className="bg-gradient-to-br from-earth-600 to-sage-600 w-16 h-16 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-110">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-sage-400 rounded-full animate-pulse"></div>
               </div>
-              <h3 className="text-2xl font-serif font-semibold mb-4 text-gray-800 group-hover:text-earth-700 transition-colors duration-300">Handcrafted</h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Each piece is carefully handcrafted with attention to detail and artistic vision
+              <h3 className="text-2xl font-serif font-semibold text-gray-900 mb-4 group-hover:text-earth-600 transition-colors duration-300">Inspired by Nature</h3>
+              <p className="text-gray-600 font-serif leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                Our designs draw inspiration from nature’s beauty, using organic materials and eco-friendly dyes to create timeless elegance.
               </p>
             </div>
-            
-            <div className="text-center group scroll-animate stagger-3">
-              <div className="relative mb-6 inline-block">
-                <div className="bg-gradient-to-br from-rose-600 to-sage-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 hover-glow">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+            <div className="relative group scroll-animate stagger-3 bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-rose-600 to-sage-600 rounded-t-2xl"></div>
+              <div className="flex justify-center mb-6">
+                <div className="bg-gradient-to-br from-rose-600 to-sage-600 w-16 h-16 rounded-full flex items-center justify-center transform transition-all duration-500 group-hover:scale-110">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9a9 9 0 01-9-9m9 9c0 5-4 9-9 9s-9-4-9-9m9-9a9 9 0 00-9 9" />
                   </svg>
                 </div>
-                <div className="absolute -top-2 -right-2 w-6 h-6 bg-earth-400 rounded-full animate-pulse"></div>
               </div>
-              <h3 className="text-2xl font-serif font-semibold mb-4 text-gray-800 group-hover:text-rose-700 transition-colors duration-300">Eco-Friendly</h3>
-              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                Sustainable production process that respects and honors our environment
+              <h3 className="text-2xl font-serif font-semibold text-gray-900 mb-4 group-hover:text-rose-600 transition-colors duration-300">Eco-Conscious Innovation</h3>
+              <p className="text-gray-600 font-serif leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                Sustainable practices and innovative eco-printing techniques ensure our fashion respects the planet.
               </p>
             </div>
           </div>
@@ -301,8 +284,7 @@ const Home = () => {
       </section>
 
       {/* Process Preview Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-rose-50 to-sage-50 relative overflow-hidden">
-        <div className="absolute inset-0 liquid opacity-5"></div>
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6 gradient-text">
@@ -322,7 +304,7 @@ const Home = () => {
                 image: "https://images.pexels.com/photos/1263986/pexels-photo-1263986.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=2"
               },
               {
-                step: "02", 
+                step: "02",
                 title: "Prepare",
                 description: "Treating organic fabrics",
                 image: "https://images.pexels.com/photos/4992830/pexels-photo-4992830.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=2"
@@ -367,7 +349,7 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 bg-gradient-to-r from-white via-rose-50 to-white relative">
+      <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6 gradient-text">
@@ -377,7 +359,7 @@ const Home = () => {
               Discover our latest creations where nature's artistry meets sustainable fashion
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product, index) => (
               <div key={product.id} className={`scroll-animate stagger-${index + 1}`}>
@@ -385,7 +367,7 @@ const Home = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="text-center mt-16 scroll-animate">
             <button className="group relative bg-gradient-to-r from-earth-500 to-sage-500 hover:from-earth-600 hover:to-sage-600 text-white px-10 py-4 rounded-full font-medium transition-all duration-500 transform hover:scale-110 hover:shadow-2xl ripple magnetic">
               <span className="relative z-10">View All Products</span>
@@ -396,20 +378,19 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-sage-600 via-earth-600 to-rose-600 relative overflow-hidden">
-        <div className="absolute inset-0 liquid opacity-20"></div>
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
               What Our Customers Say
             </h2>
-            <p className="text-xl text-sage-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Real stories from people who love sustainable fashion
             </p>
           </div>
 
           <div className="relative overflow-hidden testimonials-container">
-            <div 
+            <div
               ref={testimonialsRef}
               className="flex animate-scroll-testimonials select-none"
               onMouseDown={handleMouseDown}
@@ -420,9 +401,8 @@ const Home = () => {
               onTouchEnd={handleTouchEnd}
               onTouchMove={handleTouchMove}
             >
-              {/* First set of testimonials */}
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="flex-shrink-0 w-80 md:w-96 mx-4 group bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform transition-all duration-700 hover:scale-105 hover:bg-white/20 hover-glow">
+                <div key={index} className="flex-shrink-0 w-80 md:w-96 mx-4 group bg-gray-100 rounded-2xl p-6 text-center transform transition-all duration-700 hover:scale-105 hover:bg-gray-200 hover-glow">
                   <div className="mb-4">
                     <div className="flex justify-center mb-3">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -437,17 +417,16 @@ const Home = () => {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-white/90 mb-4 italic leading-relaxed group-hover:text-white transition-colors duration-300 text-sm">
+                  <p className="text-gray-600 mb-4 italic leading-relaxed group-hover:text-gray-800 transition-colors duration-300 text-sm">
                     "{testimonial.text}"
                   </p>
-                  <h4 className="text-white font-semibold text-base group-hover:text-rose-200 transition-colors duration-300">
+                  <h4 className="text-gray-800 font-semibold text-base group-hover:text-sage-700 transition-colors duration-300">
                     {testimonial.name}
                   </h4>
                 </div>
               ))}
-              {/* Duplicate set for seamless loop */}
               {testimonials.map((testimonial, index) => (
-                <div key={`duplicate-${index}`} className="flex-shrink-0 w-80 md:w-96 mx-4 group bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center transform transition-all duration-700 hover:scale-105 hover:bg-white/20 hover-glow">
+                <div key={`duplicate-${index}`} className="flex-shrink-0 w-80 md:w-96 mx-4 group bg-gray-100 rounded-2xl p-6 text-center transform transition-all duration-700 hover:scale-105 hover:bg-gray-200 hover-glow">
                   <div className="mb-4">
                     <div className="flex justify-center mb-3">
                       {[...Array(testimonial.rating)].map((_, i) => (
@@ -462,10 +441,10 @@ const Home = () => {
                       </svg>
                     </div>
                   </div>
-                  <p className="text-white/90 mb-4 italic leading-relaxed group-hover:text-white transition-colors duration-300 text-sm">
+                  <p className="text-gray-600 mb-4 italic leading-relaxed group-hover:text-gray-800 transition-colors duration-300 text-sm">
                     "{testimonial.text}"
                   </p>
-                  <h4 className="text-white font-semibold text-base group-hover:text-rose-200 transition-colors duration-300">
+                  <h4 className="text-gray-800 font-semibold text-base group-hover:text-sage-700 transition-colors duration-300">
                     {testimonial.name}
                   </h4>
                 </div>
@@ -476,7 +455,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-rose-50 via-white to-sage-50 relative">
+      <section className="py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -502,24 +481,20 @@ const Home = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-r from-sage-600 via-earth-600 to-rose-600 relative overflow-hidden">
-        <div className="absolute inset-0 liquid opacity-20"></div>
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full floating"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full floating"></div>
-        
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="scroll-animate">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
               Stay Connected with Nature
             </h2>
-            <p className="text-xl text-sage-100 mb-10 leading-relaxed">
+            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
               Subscribe to our newsletter for sustainable fashion tips and new collection updates
             </p>
             <div className="max-w-md mx-auto flex group">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-l-full focus:outline-none focus:ring-4 focus:ring-white/30 transition-all duration-300 text-gray-800 bg-white/95 backdrop-blur-sm"
+                className="flex-1 px-6 py-4 rounded-l-full focus:outline-none focus:ring-4 focus:ring-gray-300 transition-all duration-300 text-gray-800 bg-gray-100"
               />
               <button className="bg-gradient-to-r from-earth-500 to-rose-500 hover:from-earth-600 hover:to-rose-600 text-white px-8 py-4 rounded-r-full font-medium transition-all duration-300 transform hover:scale-105 ripple">
                 Subscribe
@@ -529,7 +504,7 @@ const Home = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

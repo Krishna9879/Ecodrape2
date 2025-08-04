@@ -1,3 +1,5 @@
+import React from 'react';
+
 // Images from public/assets folder
 const aboutimg1 = '/assets/aboutimg1.jpg'
 const aboutimg2 = '/assets/aboutimg2.jpg'
@@ -46,101 +48,198 @@ const AboutUs = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
       {/* Hero Section */}
-      <section className="relative h-96 overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent z-10"></div>
         <img
           src="/assets/aboutimg2.jpg"
           alt="Natural materials for eco printing"
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">About Eco Drape</h1>
-            <p className="text-xl md:text-2xl text-gray-200">Where Nature Meets Fashion</p>
+        <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-6">
+          <div className="space-y-6 animate-pulse">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-wide leading-tight">
+              About <span className="font-serif italic">Eco Drape</span>
+            </h1>
+            <div className="w-24 h-0.5 bg-white/80 mx-auto"></div>
+            <p className="text-xl md:text-2xl lg:text-3xl font-light text-neutral-200 max-w-2xl mx-auto leading-relaxed">
+              Where Nature Meets Fashion
+            </p>
+          </div>
+        </div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="animate-bounce">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-8 animate-slide-up">
-            Our Story
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
-            At Eco Drape, we believe that fashion should tell a story — not just of style, but of sustainability, 
-            craftsmanship, and respect for nature. Our journey began with a simple yet profound realization: 
-            the most beautiful patterns already exist in nature, waiting to be discovered and shared.
-          </p>
-        </div>
-      </section>
-
-      {/* Process Steps */}
-      <section className="py-16 bg-stone-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {processSteps.map((step, index) => (
-            <div key={index} className={`mb-16 ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'} flex flex-col lg:flex-row items-center gap-12`}>
-              <div className="lg:w-1/2 animate-slide-in-left">
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
+              Our <span className="font-serif italic">Story</span>
+            </h2>
+            <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-12"></div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-light">
+                At Eco Drape, we believe that fashion should tell a story — not just of style, but of sustainability, 
+                craftsmanship, and respect for nature. Our journey began with a simple yet profound realization: 
+                the most beautiful patterns already exist in nature, waiting to be discovered and shared.
+              </p>
+              <div className="pt-8">
+                <div className="grid grid-cols-3 gap-8 text-center">
+                  <div className="space-y-2">
+                    <div className="text-3xl font-light text-emerald-600">100%</div>
+                    <div className="text-sm uppercase tracking-wider text-neutral-500">Natural</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl font-light text-emerald-600">Zero</div>
+                    <div className="text-sm uppercase tracking-wider text-neutral-500">Waste</div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="text-3xl font-light text-emerald-600">Hand</div>
+                    <div className="text-sm uppercase tracking-wider text-neutral-500">Crafted</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-full h-80 object-cover rounded-lg shadow-xl"
+                  src="/assets/aboutimg1.jpg"
+                  alt="Natural eco printing process"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="lg:w-1/2 animate-slide-in-right">
-                <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-6">
-                  {step.title}
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {step.content}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Mission Statement */}
-      <section className="py-16 bg-sage-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-8 animate-slide-up">
-            Our Mission
-          </h2>
-          <p className="text-xl text-sage-100 leading-relaxed mb-8 animate-slide-up" style={{animationDelay: '0.2s'}}>
-            We are committed to creating beautiful, sustainable fashion that honors both the artisan and the earth. 
-            Every piece we make is a testament to the belief that fashion can be a force for good — 
-            supporting local communities, preserving traditional techniques, and protecting our environment.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="animate-slide-up" style={{animationDelay: '0.3s'}}>
-              <h3 className="text-xl font-semibold text-white mb-3">Sustainability</h3>
-              <p className="text-sage-200">Zero waste production using only natural, biodegradable materials</p>
-            </div>
-            <div className="animate-slide-up" style={{animationDelay: '0.4s'}}>
-              <h3 className="text-xl font-semibold text-white mb-3">Artistry</h3>
-              <p className="text-sage-200">Preserving traditional crafts while embracing innovation</p>
-            </div>
-            <div className="animate-slide-up" style={{animationDelay: '0.5s'}}>
-              <h3 className="text-xl font-semibold text-white mb-3">Community</h3>
-              <p className="text-sage-200">Supporting local artisans and ethical production practices</p>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-100 rounded-2xl -z-10"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6 animate-slide-up">
-            Join Our Journey
+      {/* Process Steps */}
+      <section className="py-24 bg-gradient-to-b from-neutral-50 to-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
+              Our <span className="font-serif italic">Process</span>
+            </h2>
+            <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-8"></div>
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto font-light">
+              Every piece tells a story of careful craftsmanship and sustainable practices
+            </p>
+          </div>
+
+          <div className="space-y-32">
+            {processSteps.map((step, index) => (
+              <div key={index} className={`flex flex-col lg:flex-row items-center gap-16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className="lg:w-1/2 relative group">
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-neutral-100">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div className={`absolute -top-4 ${index % 2 === 0 ? '-right-4' : '-left-4'} w-24 h-24 bg-emerald-100 rounded-full -z-10`}></div>
+                  <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center shadow-lg">
+                    <span className="text-2xl font-light text-emerald-600">{index + 1}</span>
+                  </div>
+                </div>
+                
+                <div className="lg:w-1/2 space-y-6">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl md:text-4xl font-light text-neutral-800 leading-tight">
+                      {step.title}
+                    </h3>
+                    <div className="w-12 h-0.5 bg-emerald-600"></div>
+                  </div>
+                  <p className="text-lg md:text-xl text-neutral-600 leading-relaxed font-light">
+                    {step.content}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Statement */}
+      <section className="py-24 bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full translate-y-36 -translate-x-36"></div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8">
+            Our <span className="font-serif italic">Mission</span>
           </h2>
-          <p className="text-lg text-gray-600 mb-8 animate-slide-up" style={{animationDelay: '0.2s'}}>
+          <div className="w-16 h-0.5 bg-white/80 mx-auto mb-12"></div>
+          
+          <p className="text-xl md:text-2xl text-emerald-100 leading-relaxed mb-16 max-w-4xl mx-auto font-light">
+            We are committed to creating beautiful, sustainable fashion that honors both the artisan and the earth. 
+            Every piece we make is a testament to the belief that fashion can be a force for good — 
+            supporting local communities, preserving traditional techniques, and protecting our environment.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+            {[
+              {
+                title: "Sustainability",
+                description: "Zero waste production using only natural, biodegradable materials",
+                icon: "🌱"
+              },
+              {
+                title: "Artistry",
+                description: "Preserving traditional crafts while embracing innovation",
+                icon: "🎨"
+              },
+              {
+                title: "Community",
+                description: "Supporting local artisans and ethical production practices",
+                icon: "🤝"
+              }
+            ].map((item, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 group">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-light text-white mb-4">{item.title}</h3>
+                <p className="text-emerald-100 font-light leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
+            Join Our <span className="font-serif italic">Journey</span>
+          </h2>
+          <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-12"></div>
+          
+          <p className="text-xl md:text-2xl text-neutral-600 mb-12 font-light leading-relaxed max-w-3xl mx-auto">
             Every purchase supports sustainable fashion and helps preserve traditional craftsmanship. 
             Together, we can make fashion more beautiful, more meaningful, and more sustainable.
           </p>
-          <button className="bg-sage-600 hover:bg-sage-700 text-white px-8 py-3 rounded-full text-lg font-medium transition-colors duration-300 transform hover:scale-105 animate-slide-up" style={{animationDelay: '0.4s'}}>
-            Explore Our Collection
+          
+          <button className="group relative inline-flex items-center justify-center px-12 py-4 text-lg font-medium text-white bg-emerald-600 rounded-full hover:bg-emerald-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+            <span className="relative z-10">Explore Our Collection</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <svg className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </button>
         </div>
       </section>

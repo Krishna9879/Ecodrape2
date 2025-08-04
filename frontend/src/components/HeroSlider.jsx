@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react'
 
+// Images for mobile slides
+const img64 = '/assets/img64.png'
+const img65 = '/assets/img65.jpg'
+const img66 = '/assets/img66.jpg'
+
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
-  const slides = [
+  // Desktop slides
+  const desktopSlides = [
     {
       image: 'https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       title: 'Nature\'s Artistry',
@@ -24,6 +31,48 @@ const HeroSlider = () => {
     }
   ]
 
+  // Mobile slides
+  const mobileSlides = [
+    {
+      image: img64,
+      title: 'Organic Cotton Romper',
+      subtitle: 'Playful romper with botanical details',
+      cta: 'Shop Now'
+    },
+    {
+      image: img65,
+      title: 'Natural Silk Blouse',
+      subtitle: 'Elegant blouse in peace silk',
+      cta: 'Discover More'
+    },
+    {
+      image: img66,
+      title: 'Eco-Dyed Maxi Dress',
+      subtitle: 'Stunning maxi dress with natural dyes',
+      cta: 'Explore Collection'
+    }
+  ]
+
+  // Determine device type based on window width
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768) // Tailwind's 'md' breakpoint
+    }
+
+    // Initial check
+    handleResize()
+
+    // Add resize event listener
+    window.addEventListener('resize', handleResize)
+
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Select slides based on device type
+  const slides = isMobile ? mobileSlides : desktopSlides
+
+  // Auto-slide functionality
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
