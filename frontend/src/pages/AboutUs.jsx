@@ -1,14 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Images from public/assets folder
-const aboutimg1 = '/assets/aboutimg1.jpg'
-const aboutimg2 = '/assets/aboutimg2.jpg'
-const aboutimg3 = '/assets/aboutimg3.jpg'
-const aboutimg4 = '/assets/aboutimg4.jpg'
-const aboutimg5 = '/assets/aboutimg5.jpg'
-const aboutimg6 = '/assets/aboutimg6.jpg'
+const aboutimg1 = '/assets/aboutimg1.jpg';
+const aboutimg2 = '/assets/aboutimg2.jpg';
+const aboutimg3 = '/assets/aboutimg3.jpg';
+const aboutimg4 = '/assets/aboutimg4.jpg';
+const aboutimg5 = '/assets/aboutimg5.jpg';
+const aboutimg6 = '/assets/aboutimg6.jpg';
+const heroImage = '/assets/hero-about.jpg'; // New professional hero image
 
 const AboutUs = () => {
+  const navigate = useNavigate();
+
   const processSteps = [
     {
       title: "Collection of Natural Materials",
@@ -43,28 +47,51 @@ const AboutUs = () => {
     {
       title: "Transformation into Products",
       image: aboutimg3,
-      content: "Once the fabric is ready, it's stitched into scarves, dresses, tops, or accessories. Each product is crafted to preserve the beauty of the print and its placement. We design minimal silhouettes to let the natural art speak for itself. Every finished piece is not just wearable — it's a story of the Earth, told in color and texture."
+      content: "Once the fabric is ready, it's stitched into scarves, dresses, tops, or accessories. Each product is crafted to preserve the beauty of the print and its placement. We design minimal silhouettes to let the natural art speak for itself. Every finished piece is not just wearable — it's a story of the Earth, told in color and texture.",
+      product: {
+        id: 1,
+        name: "Botanical Print Scarf",
+        description: "Handcrafted scarf with eco-printed botanical patterns. Made from 100% natural silk and plant pigments. Each scarf is unique, carrying the imprint of real leaves and flowers, and crafted with sustainable practices.",
+        price: "89.99"
+      }
     }
-  ]
+  ];
+
+  const handleCardClick = (step) => {
+    if (step.product) {
+      navigate(`/product/${step.product.id}`, { 
+        state: { 
+          product: {
+            ...step.product,
+            image: step.image
+          } 
+        } 
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent z-10"></div>
+      {/* Enhanced Hero Section */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-transparent z-10"></div>
         <img
-          src="/assets/aboutimg2.jpg"
-          alt="Natural materials for eco printing"
+          src={heroImage}
+          alt="Eco-friendly clothing collection"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="relative z-20 text-center text-white max-w-4xl mx-auto px-6">
-          <div className="space-y-6 animate-pulse">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-wide leading-tight">
-              About <span className="font-serif italic">Eco Drape</span>
+          <div className="space-y-6 animate-fadeIn">
+            <div className="inline-flex items-center justify-center space-x-3 mb-6">
+              <div className="w-12 h-0.5 bg-emerald-400"></div>
+              <span className="text-emerald-400 font-light tracking-widest">SUSTAINABLE FASHION</span>
+              <div className="w-12 h-0.5 bg-emerald-400"></div>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-wide leading-tight">
+              About <span className="font-serif italic text-emerald-50">Eco Drape</span>
             </h1>
-            <div className="w-24 h-0.5 bg-white/80 mx-auto"></div>
-            <p className="text-xl md:text-2xl lg:text-3xl font-light text-neutral-200 max-w-2xl mx-auto leading-relaxed">
-              Where Nature Meets Fashion
+            <p className="text-xl md:text-2xl font-light text-emerald-100 max-w-2xl mx-auto leading-relaxed mt-8">
+              Where Nature's Beauty Meets Ethical Fashion
             </p>
           </div>
         </div>
@@ -82,7 +109,7 @@ const AboutUs = () => {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
-              Our <span className="font-serif italic">Story</span>
+              Our <span className="font-serif italic text-emerald-600">Story</span>
             </h2>
             <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-12"></div>
           </div>
@@ -113,7 +140,7 @@ const AboutUs = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
                   src="/assets/aboutimg1.jpg"
                   alt="Natural eco printing process"
@@ -131,7 +158,7 @@ const AboutUs = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
-              Our <span className="font-serif italic">Process</span>
+              Our <span className="font-serif italic text-emerald-600">Process</span>
             </h2>
             <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-8"></div>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto font-light">
@@ -139,19 +166,22 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="space-y-32">
+          <div className="space-y-24">
             {processSteps.map((step, index) => (
-              <div key={index} className={`flex flex-col lg:flex-row items-center gap-16 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <div 
+                key={index} 
+                className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} ${step.product ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`}
+                onClick={() => step.product && handleCardClick(step)}
+              >
                 <div className="lg:w-1/2 relative group">
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl bg-neutral-100">
+                  <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-white shadow-xl border border-neutral-100">
                     <img
                       src={step.image}
                       alt={step.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-700"
                     />
                   </div>
-                  <div className={`absolute -top-4 ${index % 2 === 0 ? '-right-4' : '-left-4'} w-24 h-24 bg-emerald-100 rounded-full -z-10`}></div>
-                  <div className="absolute top-8 left-8 bg-white/90 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center shadow-lg">
+                  <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center shadow-lg border border-neutral-100">
                     <span className="text-2xl font-light text-emerald-600">{index + 1}</span>
                   </div>
                 </div>
@@ -181,7 +211,7 @@ const AboutUs = () => {
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8">
-            Our <span className="font-serif italic">Mission</span>
+            Our <span className="font-serif italic text-emerald-100">Mission</span>
           </h2>
           <div className="w-16 h-0.5 bg-white/80 mx-auto mb-12"></div>
           
@@ -225,7 +255,7 @@ const AboutUs = () => {
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
-            Join Our <span className="font-serif italic">Journey</span>
+            Join Our <span className="font-serif italic text-emerald-600">Journey</span>
           </h2>
           <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-12"></div>
           
@@ -247,4 +277,4 @@ const AboutUs = () => {
   )
 }
 
-export default AboutUs
+export default AboutUs;

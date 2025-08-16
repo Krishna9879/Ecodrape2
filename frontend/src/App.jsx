@@ -9,6 +9,7 @@ import MensNewArrivals from './pages/MensNewArrivals'
 import WomensNewArrivals from './pages/WomensNewArrivals'
 import Contact from './pages/Contact'
 import Blog from './pages/Blog'
+import ProductDetail from './pages/ProductDetail'
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/catalog" element={<Catalog />} />
+            <Route path="/product/:productId" element={<ProductDetail />} />
             <Route path="/new-arrivals" element={<NewArrivals />} />
             <Route path="/mens-new-arrivals" element={<MensNewArrivals />} />
             <Route path="/womens-new-arrivals" element={<WomensNewArrivals />} />
