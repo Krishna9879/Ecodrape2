@@ -8,7 +8,7 @@ const aboutimg3 = '/assets/aboutimg3.jpg';
 const aboutimg4 = '/assets/aboutimg4.jpg';
 const aboutimg5 = '/assets/aboutimg5.jpg';
 const aboutimg6 = '/assets/aboutimg6.jpg';
-const heroImage = '/assets/hero-about.jpg'; // New professional hero image
+const heroImage = '/assets/hero_img17.jpg'; // Updated hero image
 
 const AboutUs = () => {
   const navigate = useNavigate();
@@ -73,7 +73,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
       {/* Enhanced Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[78vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-transparent z-10"></div>
         <img
           src={heroImage}
@@ -105,13 +105,13 @@ const AboutUs = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24 bg-white">
+      <section className="pt-10 pb-14 bg-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
               Our <span className="font-serif italic text-emerald-600">Story</span>
             </h2>
-            <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-12"></div>
+            <div className="w-16 h-0.5 bg-emerald-600 mx-auto mb-8"></div>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -140,11 +140,11 @@ const AboutUs = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                 <img
-                  src="/assets/aboutimg1.jpg"
+                  src="/assets/about_1.jpg"
                   alt="Natural eco printing process"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  className="block w-full h-auto"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-100 rounded-2xl -z-10"></div>
@@ -154,7 +154,7 @@ const AboutUs = () => {
       </section>
 
       {/* Process Steps */}
-      <section className="py-24 bg-gradient-to-b from-neutral-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-neutral-50 to-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
@@ -204,7 +204,7 @@ const AboutUs = () => {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-24 bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full translate-y-36 -translate-x-36"></div>
@@ -252,7 +252,7 @@ const AboutUs = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-neutral-800 mb-8">
             Join Our <span className="font-serif italic text-emerald-600">Journey</span>
