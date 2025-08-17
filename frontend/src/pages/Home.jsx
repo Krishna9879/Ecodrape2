@@ -11,30 +11,30 @@ const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: "Botanical Leaf Print Dress",
+      name: "Blazer Set",
       price: "₹7,599",
-      image: "/assets/img33.jpg",
+      image: "/assets/img15_1.jpg",
       description: "Flowing maxi with hand-printed leaves"
     },
     {
       id: 2,
-      name: "Organic Cotton Scarf",
+      name: "Organic Printed Saree",
       price: "₹4,699",
-      image: "/assets/img34.jpg",
+      image: "/assets/img11_1.jpeg",
       description: "Luxurious scarf with eco-prints"
     },
     {
       id: 3,
-      name: "Natural Dye Blouse",
+      name: "Shirt Short",
       price: "₹5,799",
-      image: "/assets/img35.jpg",
+      image: "/assets/img26_1.jpg",
       description: "Elegant blouse with botanical designs"
     },
     {
       id: 4,
-      name: "Earth Tone Tunic",
+      name: "Natural Silk Saree",
       price: "₹6,299",
-      image: "/assets/img36.jpg",
+      image: "/assets/img9_1.jpg",
       description: "Comfortable tunic with leaf motifs"
     }
   ];
