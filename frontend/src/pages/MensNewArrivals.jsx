@@ -5,9 +5,11 @@ const MensNewArrivals = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const sliderImages = [
-    "/assets/aboutimg4.jpg",
-    "/assets/aboutimg5.jpg",
-    "/assets/aboutimg6.jpg"
+     "/assets/hero_img17.jpg",
+    "/assets/hero_img1.png",
+    "/assets/hero_img2.png",
+    "/assets/hero_img9.png",
+    "/assets/hero_img14.png"
   ]
 
   const mensProducts = []
