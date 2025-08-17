@@ -39,6 +39,49 @@ const Home = () => {
     }
   ];
 
+  const faqs = [
+    {
+      q: "What is eco-printing and natural dyeing?",
+      a: "We use leaves, flowers, bark and other botanicals to imprint patterns and color onto natural fabrics using slow, low-impact methods."
+    },
+    {
+      q: "Are your dyes chemical-free and safe for skin?",
+      a: "Yes. We rely on plant-based colorants and non-toxic auxiliaries. Our garments are gentle on skin, including sensitive skin."
+    },
+    {
+      q: "Will the colors fade over time?",
+      a: "Natural colors age beautifully. With proper care, they remain vibrant; slight softening is natural and part of the charm."
+    },
+    {
+      q: "How should I wash and care for my garment?",
+      a: "Hand wash separately in cold water with mild, pH-neutral detergent. Do not bleach. Dry in shade. Warm iron on reverse."
+    },
+    {
+      q: "Are the fabrics organic and sustainable?",
+      a: "We prioritize organic cotton, linen, silk and other responsibly sourced natural fibers produced in small batches."
+    },
+    {
+      q: "Is each piece unique?",
+      a: "Yes. Botanical placement and tone vary with each print, making every piece one-of-a-kind."
+    },
+    {
+      q: "Do you use fixatives or mordants?",
+      a: "We use responsible, low-impact fixation methods to improve washfastness while keeping our process eco-conscious."
+    },
+    {
+      q: "Do you offer custom sizes or bespoke prints?",
+      a: "Yes. Contact us for custom sizing, lengths and special commissions based on available botanicals."
+    },
+    {
+      q: "What about color transfer?",
+      a: "A minor initial release of color can occur with natural dyes. Always wash separately the first few washes."
+    },
+    {
+      q: "What is your return or exchange policy?",
+      a: "Eligible unworn items can be exchanged/returned within the policy window. Custom pieces may have different terms."
+    }
+  ];
+
   const testimonials = [
     {
       name: "Priya Sharma",
@@ -221,6 +264,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* FAQ moved to after Stats Section */}
 
       {/* Why Choose Eco Drape Section */}
       <section className="py-20 bg-white relative">
@@ -475,6 +519,32 @@ const Home = () => {
                   {stat.label}
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 scroll-animate">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600">
+              Learn more about our natural dyed and eco-printed clothing
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <details key={idx} className="group bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-all scroll-animate">
+                <summary className="flex items-center justify-between cursor-pointer list-none">
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900">{faq.q}</h3>
+                  <span className="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-sage-600 to-earth-600 text-white flex items-center justify-center">+</span>
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">{faq.a}</p>
+              </details>
             ))}
           </div>
         </div>
